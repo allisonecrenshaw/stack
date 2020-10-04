@@ -16,3 +16,27 @@ Purpose: This program creates the structure
 /*
  * write all your stack methods here
  */
+
+Stack::Stack() {
+
+}
+Stack::˜Stack() {
+
+}
+
+bool Stack::isEmpty(){
+    return false;
+}
+
+bool Stack::peek(Data* peekPtr) {
+    return false;
+} // end peek()
+
+bool Stack::pop(Data* popPtr){
+  return false;
+} // end pop()
+
+bool Stack::push(int pushedID, string pushedData){
+    return false;
+} // end push()
+
