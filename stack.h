@@ -1,5 +1,12 @@
+/*********************
+Name: Allison Crenshaw
+Coding 04
+Purpose: This program creates the structure
+ for a stack of Data objects (ADT created by prof).
+ Must include extensive testing of functions.
+**********************/
+
 /*
- * Your comment header here
  * modify this file as needed to complete the assignment
  */
 
