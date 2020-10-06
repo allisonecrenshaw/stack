@@ -21,7 +21,8 @@ Stack::Stack() {
     top = -1; // signifies stack is empty
 }
 Stack::~Stack() {
-
+    for (int i=0; i<top+1; i++) // top+1 bc top is an index
+        delete stack[i]; // deletes data @ ptr location, not ptr
 }
 
 bool Stack::isEmpty(){
