@@ -30,7 +30,7 @@ public:
      * this includes you constructor and destructor
      */
     Stack(); // constructor
-    ˜Stack(); // destructor
+    ~Stack(); // destructor
 
     bool isEmpty();
     bool peek(Data*);

@@ -18,9 +18,9 @@ Purpose: This program creates the structure
  */
 
 Stack::Stack() {
-
+    top = -1; // signifies stack is empty
 }
-Stack::˜Stack() {
+Stack::~Stack() {
 
 }
 
