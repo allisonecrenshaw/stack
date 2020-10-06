@@ -61,7 +61,17 @@ bool Stack::pop(Data* popPtr){
     return ok;
 } // end pop()
 
-bool Stack::push(int pushedID, string pushedData){
-    return false;
+bool Stack::push(int pushedID, string pushedInfo){
+    bool ok = false;
+    // check if stack full; if not, push arg attributes onto stack
+    if (top < STACK_SIZE-1) { // -1 accounts for index
+        ok = true;
+        Data* newData = new Data; // dynamically allocate mem for struct
+        newData->id = pushedID;
+        newData->information = pushedInfo;
+        top++; // account for newly pushed Data
+        stack[top] = newData; // assign given data to top spot of stack
+    }
+    return ok;
 } // end push()
 
