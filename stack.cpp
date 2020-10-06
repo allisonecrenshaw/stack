@@ -26,15 +26,39 @@ Stack::~Stack() {
 }
 
 bool Stack::isEmpty(){
-    return false;
+    bool empty = false;
+    if (top<0) {empty=true;};
+    return empty;
 }
 
 bool Stack::peek(Data* peekPtr) {
-    return false;
+    bool ok = false;
+    if (isEmpty()) { // if stack is empty, give dummy vals
+        peekPtr->id = -1;
+        peekPtr->information = "";
+    }
+    else { // assign values from top
+        ok = true;
+        peekPtr->id = stack[top]->id;
+        peekPtr->information = stack[top]->information;
+    }
+    return ok;
 } // end peek()
 
 bool Stack::pop(Data* popPtr){
-  return false;
+    bool ok = false;
+    if (isEmpty()) { // if stack is empty, give dummy vals
+        popPtr->id = -1;
+        popPtr->information = "";
+    }
+    else { // assign values from top
+        ok = true;
+        popPtr->id = stack[top]->id;
+        popPtr->information = stack[top]->information;
+    }
+    // delete allocated memory and decrement counter to reflect pop
+    delete stack[top--];
+    return ok;
 } // end pop()
 
 bool Stack::push(int pushedID, string pushedData){
