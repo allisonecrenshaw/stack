@@ -64,6 +64,37 @@ int main() {
      * or the same size as the size of your stack.
      */
 
+    // testing variables
+    string lineBreak = "********************************";
+
+    bool empty;
+    string isEmptyMsg = "Stack empty.";
+    string notEmptyMsg = "Stack not empty.";
+
+    bool peekSuccessful;
+    Data peekData;
+    bool popSuccessful;
+    Data popData;
+    bool pushSuccessful;
+
+
+    // test isEmpty, peek, and pop once each on empty stack
+    cout << endl;
+    cout << lineBreak << endl;
+    cout << "Start testing written by student." << endl;
+    // test isEmpty() while stack is known to be empty
+    cout << lineBreak << endl;
+    cout << "Testing isEmpty, peek, and pop on empty stack..." << endl;
+    empty = stack.isEmpty();
+    if (empty == true)
+        cout << isEmptyMsg << endl;
+    else
+        cout << notEmptyMsg << endl;
+    // test peek and pop while stack empty
+    peekSuccessful = stack.peek(&peekData);
+    stack.peekPopTest("Peek", peekSuccessful, &peekData);
+    stack.peekPopTest("Pop", popSuccessful, &peekData);
+
 
     return 0;
 }
