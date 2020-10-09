@@ -52,17 +52,6 @@ int main() {
     
     /* first call isEmpty(), peek(), and pop() to show what happens when
      * you do that on an empty stack */
-    
-    /*
-     * Now perform an exhaustive series of tests on your stack. Push all the
-     * cases. Pop all the cases. Randomly push and pop cases. Test peek() and
-     * isEmpty() randomly and throughout the other cases. Your tests must be
-     * exhaustive! Show all possible ways your stack can be used and abused,
-     * and that your stack will gracefully handle ALL cases. You must use
-     * automated testing (no user input). Make sure you run your program
-     * many times to see what happens when the test cases are bigger, smaller,
-     * or the same size as the size of your stack.
-     */
 
     // testing variables
     string lineBreak = "********************************";
@@ -82,7 +71,7 @@ int main() {
     cout << endl;
     cout << lineBreak << endl;
     cout << "Start testing written by student." << endl;
-    // test isEmpty() while stack is known to be empty
+
     cout << lineBreak << endl;
     cout << "Testing isEmpty, peek, and pop on empty stack..." << endl;
     empty = stack.isEmpty();
@@ -94,6 +83,37 @@ int main() {
     peekSuccessful = stack.peek(&peekData);
     stack.peekPopTest("Peek", peekSuccessful, &peekData);
     stack.peekPopTest("Pop", popSuccessful, &peekData);
+
+
+    /*
+     * Now perform an exhaustive series of tests on your stack. Push all the
+     * cases. Pop all the cases. Randomly push and pop cases. Test peek() and
+     * isEmpty() randomly and throughout the other cases. Your tests must be
+     * exhaustive! Show all possible ways your stack can be used and abused,
+     * and that your stack will gracefully handle ALL cases. You must use
+     * automated testing (no user input). Make sure you run your program
+     * many times to see what happens when the test cases are bigger, smaller,
+     * or the same size as the size of your stack.
+     */
+
+    // test push once, followed by a peek and pop if push is successful
+    // call push w/ data then call test to output info
+    cout << endl;
+    cout << "Pushing first Data onto stack..." << endl;
+    pushSuccessful = stack.push(ids[0], data[0]);
+    stack.pushTest(pushSuccessful);
+    // call peek and pop to see if they match
+    cout << "Peek and pop should show just-pushed data..." << endl;
+    peekSuccessful = stack.peek(&peekData);
+    stack.peekPopTest("Peek", peekSuccessful, &peekData);
+    popSuccessful = stack.pop(&popData);
+    stack.peekPopTest("Pop", popSuccessful, &popData);
+
+    cout << endl;
+    cout << "Next part goes here." << endl;
+
+
+
 
 
     return 0;
