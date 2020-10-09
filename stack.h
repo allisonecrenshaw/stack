@@ -19,6 +19,10 @@ Purpose: This program creates the structure
  */
 
 #include "data.h"
+#include <iostream>     /* cout, endl */
+using std::cout;
+using std::endl;
+
 #define STACK_SIZE 10 // do not modify this define
 
 class Stack {
@@ -36,6 +40,8 @@ public:
     bool peek(Data*);
     bool pop(Data*);
     bool push(int, string);
+    void peekPopTest(string, bool, Data*);
+    void pushTest(bool);
     
 private:
 
