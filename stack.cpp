@@ -75,3 +75,40 @@ bool Stack::push(int pushedID, string pushedInfo){
     return ok;
 } // end push()
 
+void Stack::peekPopTest(string function, bool success, Data* data) {
+    // initialize message as failed
+    string successMessage = function + " failed. ";
+    // change message to successful if true
+    if (success == true)
+        successMessage = function + " successful. ";
+    // display testing message and result message
+    cout << successMessage;
+
+    // if peek or pop, display data viewed/popped
+    if (function == "Peek") {
+        cout << "Data at top of stack: " << endl;
+        cout << "ID: " << data->id << "\tData: " << data->information << endl;
+    } // end if peek
+
+    else if (function == "Pop") {
+        cout << "Data popped from stack: " << endl;
+        cout << "ID: " << data->id << "\tData: " << data->information << endl;
+    } // end if pop
+} // end overloaded test(string, bool, Data*)
+
+void Stack::pushTest(bool success) {
+    // initialize message as failed
+    string successMessage = "Push failed.\n";
+    // change message to successful if true
+    if (success == true)
+        successMessage = "Push successful. ";
+    // display testing message and result message
+    cout << successMessage;
+
+    if (success == true) {
+        cout << "Data pushed: " << endl;
+        cout << "ID: " << stack[top]->id
+             << "\tData: " << stack[top]->information << endl;
+    }
+} // end overloaded test(string, bool)
+
