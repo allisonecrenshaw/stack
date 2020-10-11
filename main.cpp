@@ -118,11 +118,73 @@ int main() {
     stack.peekPopTest("Pop", popSuccessful, &newPopData);
 
     cout << endl;
-    cout << "Next part goes here.";
+    cout << lineBreak << endl;
+    cout << "Testing with set number of cases." << endl;
+    cout << lineBreak << endl;
+
+    // call push, pop, and peek enough times to overflow
+    int overflow = 11;
+    string myData[] = {"one", "two", "three", "four", "five", "six",
+                       "seven", "eight", "nine", "ten", "eleven"};
+
+    for (int set=1; set<=overflow; set++) {
+        // <=overflow allows attempt to push when stack full
+        cout << "Calling push, peek, pop sequence "
+             << set << " times: " << endl;
+        cout << "PUSHES:" << endl;
+        for (int i=0; i<set; i++) {
+            pushSuccessful = stack.push(i+1, myData[i]);
+            stack.pushTest(pushSuccessful);
+        }
+        // call peek and pop one extra time (index<=set) to test when empty
+        cout << endl << "PEEKS AND POPS:" << endl;
+        for (int index=0; index<=set; index++) {
+            peekSuccessful = stack.peek(&peekData);
+            stack.peekPopTest("Peek", peekSuccessful, &peekData);
+            popSuccessful = stack.pop(&popData);
+            stack.peekPopTest("Pop", popSuccessful, &popData);
+        }
+        cout << endl;
+    } // end for loop
 
 
 
 
+    cout << endl;
+    cout << lineBreak << endl;
+    cout << "Starting testing with random numbers of pushes and pops." << endl;
+    cout << lineBreak << endl;
 
+    // call push and peek random number of times
+    int numOfTests = 10; // five sets of random tests
+    int numOfPushes, numOfPops;
+
+    cout << "Calling push, peek, pop sequence 5x w/ random num of pushes, pops: " << endl;
+    for (int i=0; i<numOfTests; i++) {
+        numOfPushes = (rand() % number_test_cases)+1;
+        numOfPops = (rand() % number_test_cases)+1;
+
+        cout << numOfPushes << " PUSHES:" << endl;
+        for (int j=0; j<numOfPushes; j++) {
+            pushSuccessful = stack.push(ids[j], information[j]);
+            stack.pushTest(pushSuccessful);
+        } // end loop of pushes
+        cout << endl;
+
+        cout << numOfPops << " PEEKS AND POPS:" << endl;
+        for (int j=0; j<numOfPops; j++) {
+            peekSuccessful = stack.peek(&peekData);
+            stack.peekPopTest("Peek", peekSuccessful, &peekData);
+            popSuccessful = stack.pop(&popData);
+            stack.peekPopTest("Pop", popSuccessful, &popData);
+        }
+        cout << endl;
+    } // end outer for loop
+
+
+    // message to signal end of program
+    cout << lineBreak << endl;
+    cout << "fin." << endl;
+    cout << lineBreak << endl;
     return 0;
 }
