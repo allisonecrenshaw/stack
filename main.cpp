@@ -21,16 +21,16 @@ int main() {
 
     //making test case parallel arrays to hold test data
     int ids[number_test_cases];
-    char *data[number_test_cases];
+    char *information[number_test_cases];
     for (int i = 0; i < number_test_cases; i++) {
-        data[i] = new char[BUFFER_SIZE];
+        information[i] = new char[BUFFER_SIZE];
     }
 
     //filling arrays with test case data
     cout << "Making " << number_test_cases << " test cases..." << endl;
-    make_test_cases(ids, data, number_test_cases);
+    make_test_cases(ids, information, number_test_cases);
     cout << "Test cases done" << endl << endl;
-    display_test_cases(ids, data, number_test_cases);
+    display_test_cases(ids, information, number_test_cases);
 
     /**************************************************************/
     /* MODIFY THE FILE FROM HERE DOWN */
@@ -97,10 +97,9 @@ int main() {
      */
 
     // test push once, followed by a peek and pop if push is successful
-    // call push w/ data then call test to output info
     cout << endl;
     cout << "Pushing first Data onto stack..." << endl;
-    pushSuccessful = stack.push(ids[0], data[0]);
+    pushSuccessful = stack.push(ids[0], information[0]);
     stack.pushTest(pushSuccessful);
     // call peek and pop to see if they match
     cout << "Peek and pop should show just-pushed data..." << endl;
@@ -110,7 +109,16 @@ int main() {
     stack.peekPopTest("Pop", popSuccessful, &popData);
 
     cout << endl;
-    cout << "Next part goes here." << endl;
+    // call peek and pop again to see that it's empty again
+    cout << "Calling peek and pop again, should fail (stack empty)..." << endl;
+    peekSuccessful = stack.peek(&peekData);
+    stack.peekPopTest("Peek", peekSuccessful, &peekData);
+    Data newPopData;
+    popSuccessful = stack.pop(&newPopData);
+    stack.peekPopTest("Pop", popSuccessful, &newPopData);
+
+    cout << endl;
+    cout << "Next part goes here.";
 
 
 
