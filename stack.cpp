@@ -22,7 +22,7 @@ Stack::Stack() {
 }
 Stack::~Stack() {
     for (int i=0; i<top+1; i++) // top+1 bc top is an index
-        delete stack[i]; // deletes data @ ptr location, not ptr
+        delete stack[i]; // deletes Data @ ptr location, not ptr
 }
 
 bool Stack::isEmpty(){
@@ -55,9 +55,10 @@ bool Stack::pop(Data* popPtr){
         ok = true;
         popPtr->id = stack[top]->id;
         popPtr->information = stack[top]->information;
+        // delete allocated memory and decrement counter to reflect pop
+        delete stack[top--];
     }
-    // delete allocated memory and decrement counter to reflect pop
-    delete stack[top--];
+
     return ok;
 } // end pop()
 
@@ -70,7 +71,7 @@ bool Stack::push(int pushedID, string pushedInfo){
         newData->id = pushedID;
         newData->information = pushedInfo;
         top++; // account for newly pushed Data
-        stack[top] = newData; // assign given data to top spot of stack
+        stack[top] = newData; // assign given Data to top spot of stack
     }
     return ok;
 } // end push()
